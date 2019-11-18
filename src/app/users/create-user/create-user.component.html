@@ -1,0 +1,48 @@
+&nbsp;
+<form [formGroup]="userForm" class="form col-12" (submit)="create()">
+    <h4>Criar Usuario</h4>
+    <div class="form-group col-3">
+        <input
+            [value]="user.name"
+            formControlName="name"
+            class="form-control"
+            placeholder="Name"
+            autofocus>
+            <small
+                *ngIf="userForm.get('name').hasError('required')"
+                class="text-danger d-block mt-2">
+                Name is required!
+            </small>
+    </div>
+
+    <div class="form-group col-3">
+        <input
+            [value]="user.cpf"
+            formControlName="cpf"
+            class="form-control"
+            placeholder="CPF"
+            autofocus>
+        <small
+            *ngIf="userForm.get('cpf').hasError('required')"
+            class="text-danger d-block mt-2">
+            CPF is required!
+        </small>
+    </div>
+
+    <div class="form-group col-3">
+      <input
+          [value]="user.name"
+          formControlName="email"
+          class="form-control"
+          placeholder="e-mail"
+          autofocus>
+    </div>
+
+    <button
+        [disabled]="userForm.invalid"
+        type="submit"
+        class="col-3 btn btn-primary btn-block">
+        Salvar
+    </button>
+
+</form>
